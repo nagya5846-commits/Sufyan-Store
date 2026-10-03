@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<meta name="description" content="سفيان ستور — موبايلات وإكسسوارات أصلية بضمان، بيع وشراء واستبدال وصيانة فورية. تاجر يقولك الحقيقة.">
+<meta property="og:title" content="سفيان ستور — تاجر يقولك الحقيقة"><meta property="og:description" content="موبايلات وإكسسوارات أصلية، أسعار واضحة، ضمان وصيانة فورية."><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E📱%3C/text%3E%3C/svg%3E">
+<title>سفيان ستور — أدمن</title><meta name="robots" content="noindex,nofollow">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fff;--bg2:#f4f6fb;--tx:#0b1020;--mu:#5b6478;--br:#e3e7f0;--ac:#059669;--ac2:#0ea5e9;--ok:#16a34a;--rd:#dc2626}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--bg2:#141b30;--tx:#f2f4fb;--mu:#9aa4bd;--br:#25304d}}
+:root[data-theme="dark"]{--bg:#0b1020;--bg2:#141b30;--tx:#f2f4fb;--mu:#9aa4bd;--br:#25304d}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--f,"Cairo"),"Segoe UI",Tahoma,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.w{max-width:1100px;margin:auto;padding:0 18px}
+section{padding:56px 0}
+h1{font-size:clamp(30px,8vw,56px);line-height:1.2;margin:0 0 14px;font-weight:800}
+h2{font-size:clamp(22px,5vw,34px);margin:0 0 10px}
+.mu{color:var(--mu)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;border-radius:14px;border:0;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;box-shadow:0 10px 28px -8px var(--ac)}
+.btn.g{background:var(--bg2);color:var(--tx);box-shadow:none;border:1px solid var(--br)}
+.btn.wa{background:#25d366;box-shadow:none}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--br)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;font-size:20px;display:flex;align-items:center;gap:9px}.logo svg,.logo img{width:44px;height:44px;border-radius:12px;flex:none;object-fit:cover}.logo small{display:block;font-size:10px;font-weight:700;letter-spacing:.18em;color:var(--mu);line-height:1}.logo span{line-height:1.15}.logo b{color:var(--ac)}
+.cartb{position:relative;min-width:48px;min-height:48px;border-radius:12px;border:1px solid var(--br);background:var(--bg2);font-size:20px;cursor:pointer;color:var(--tx)}
+.cartb i{position:absolute;top:-6px;left:-6px;background:var(--rd);color:#fff;border-radius:99px;font:700 11px/1 sans-serif;padding:4px 6px;font-style:normal}
+.hero{background:radial-gradient(900px 400px at 80% -10%,color-mix(in srgb,var(--ac) 35%,transparent),transparent),radial-gradient(700px 400px at 0% 100%,color-mix(in srgb,var(--ac2) 30%,transparent),transparent);padding:64px 0 48px;text-align:center}
+.hero h1 span{background:linear-gradient(135deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:560px;margin:0 auto 24px;font-size:18px}
+.tags{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:14px}
+.tags span{padding:6px 14px;border:1px solid var(--br);border-radius:99px;background:var(--bg)}
+.scroll{margin-top:26px;color:var(--mu);font-size:14px}
+.ic{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:700px){.ic{grid-template-columns:repeat(4,1fr)}}
+.ic a{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 8px;background:var(--bg2);border:1px solid var(--br);border-radius:18px;font-weight:700;min-height:96px;justify-content:center;cursor:pointer}
+.ic a em{font-style:normal;font-size:30px}.ic a small{font-weight:400;color:var(--mu)}
+.sub{display:none;gap:10px;margin-top:12px}.sub.on{display:flex}
+.chip{flex:1;min-height:48px;border-radius:12px;border:1px solid var(--br);background:var(--bg);font-size:15px;font-weight:700;font-family:inherit;color:var(--tx);cursor:pointer}
+.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+@media(min-width:800px){.grid{grid-template-columns:repeat(4,1fr);gap:18px}}
+.card{background:var(--bg2);border:1px solid var(--br);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.card .im{aspect-ratio:1;background:var(--br);display:grid;place-items:center;font-size:44px}
+.card img,.card video{width:100%;height:100%;object-fit:cover;display:block}
+.card .bd{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{margin:0;font-size:15px}
+.pr b{font-size:18px}.pr s{color:var(--mu);font-size:13px;margin-inline-start:6px}
+.badge{font-size:12px;color:#fff;background:var(--rd);border-radius:6px;padding:1px 8px;align-self:flex-start}
+.card .btn{min-height:46px;font-size:14px;margin-top:auto;padding:0 10px}
+.empty{grid-column:1/-1;text-align:center;padding:36px;border:2px dashed var(--br);border-radius:18px;color:var(--mu)}
+.three{display:grid;gap:14px}@media(min-width:800px){.three{grid-template-columns:repeat(3,1fr)}}
+.box{background:var(--bg2);border:1px solid var(--br);border-radius:18px;padding:20px}
+.box h3{margin:0 0 6px}.alt{background:var(--bg2)}
+.stat{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;gap:8px}
+.stat b{display:block;font-size:28px;color:var(--ac)}
+.cta{text-align:center;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-radius:24px;padding:40px 20px}
+.cta .btn{background:#fff;color:#111;box-shadow:none}
+details{background:var(--bg2);border:1px solid var(--br);border-radius:14px;padding:14px 16px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;min-height:28px}
+footer{padding:34px 0 90px;border-top:1px solid var(--br);text-align:center;color:var(--mu)}
+.fab{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:16px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;font-size:28px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+dialog{border:0;border-radius:20px;padding:0;width:min(560px,94vw);max-height:90vh;background:var(--bg);color:var(--tx)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.dl{padding:20px;direction:rtl}
+.row{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px dashed var(--br)}
+.tot{font-size:20px;font-weight:800}
+input,select,textarea{width:100%;min-height:48px;padding:10px 12px;border-radius:12px;border:1px solid var(--br);background:var(--bg2);color:var(--tx);font:inherit;margin:4px 0 10px}
+label{font-size:13px;color:var(--mu)}
+.qty{display:flex;align-items:center;gap:8px}.qty button{width:40px;height:40px;border-radius:10px;border:1px solid var(--br);background:var(--bg2);color:var(--tx);font-size:18px;cursor:pointer}
+.vc{background:color-mix(in srgb,var(--rd) 12%,var(--bg));border:1px solid var(--rd);border-radius:14px;padding:12px;margin:10px 0;font-size:14px}
+#adm{display:none;background:var(--bg2);border-block:3px solid var(--ac)}
+#adm.on{display:block}
+.f2{display:grid;gap:0 10px}@media(min-width:600px){.f2{grid-template-columns:1fr 1fr}}
+.ar{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--br);font-size:14px;flex-wrap:wrap}
+.ar button{min-height:40px;padding:0 12px;border-radius:10px;border:1px solid var(--br);background:var(--bg);color:var(--tx);cursor:pointer;font-family:inherit}
+.note{font-size:13px;color:var(--mu)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}.reveal.in{opacity:1;transform:none}
+.card{transition:transform .3s,box-shadow .3s;will-change:transform}.card:hover{box-shadow:0 22px 44px -18px var(--ac);border-color:var(--ac)}
+.card .im{position:relative;overflow:hidden}.card .im img,.card .im video{transition:transform .7s}.card:hover .im img,.card:hover .im video{transform:scale(1.1)}
+.card .im:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-120%);transition:transform .8s}.card:hover .im:after{transform:translateX(120%)}
+.phone{width:120px;height:210px;margin:0 auto 18px;animation:fl 4s ease-in-out infinite;filter:drop-shadow(0 24px 30px color-mix(in srgb,var(--ac) 55%,transparent))}
+@keyframes fl{50%{transform:translateY(-14px) rotate(-3deg)}}
+.mq{overflow:hidden;white-space:nowrap;background:var(--tx);color:var(--bg);padding:10px 0;font-weight:700;font-size:14px}.mq div{display:inline-block;animation:mq 22s linear infinite}@keyframes mq{to{transform:translateX(50%)}}
+.btn{transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px)}.btn:active{transform:scale(.97)}
+.bump{animation:bp .5s}@keyframes bp{40%{transform:scale(1.3)}}
+.fab{animation:pl 2.4s infinite}@keyframes pl{0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}100%{box-shadow:0 0 0 22px rgba(37,211,102,0)}}
+.hero h1 span{background-size:200%;animation:gs 5s linear infinite}@keyframes gs{to{background-position:200%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+.ic a:last-child{grid-column:1/-1}@media(min-width:700px){.ic{grid-template-columns:repeat(5,1fr)}.ic a:last-child{grid-column:auto}}
+.reels{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px}
+.reel{flex:none;width:170px;aspect-ratio:9/16;border-radius:20px;position:relative;overflow:hidden;scroll-snap-align:start;background:linear-gradient(160deg,var(--rc1),var(--rc2));display:grid;place-items:center;color:#fff}
+.reel svg{width:68%;animation:fl 3.5s ease-in-out infinite;filter:drop-shadow(0 18px 18px rgba(0,0,0,.35))}
+.reel:before{content:"";position:absolute;width:150%;aspect-ratio:1;border-radius:50%;border:2px solid rgba(255,255,255,.25);animation:rp 3s ease-out infinite}
+@keyframes rp{from{transform:scale(.3);opacity:1}to{transform:scale(1);opacity:0}}
+.reel .wm{position:absolute;top:10px;right:10px;font-weight:800;font-size:11px;background:rgba(0,0,0,.4);padding:3px 9px;border-radius:99px;letter-spacing:.06em}
+.reel .cp{position:absolute;bottom:0;inset-inline:0;padding:30px 10px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:700;font-size:13px}
+.reel i{position:absolute;top:0;left:0;height:3px;background:#fff;animation:pg 6s linear infinite}@keyframes pg{from{width:0}to{width:100%}}
+
+.ic{grid-template-columns:repeat(2,1fr)}@media(min-width:700px){.ic{grid-template-columns:repeat(4,1fr)}}.ic a:last-child{grid-column:auto}
+.ic a.on{border-color:var(--ac);box-shadow:inset 0 0 0 2px var(--ac)}
+.card{perspective:900px}.card .im{aspect-ratio:1;padding:12px;background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--ac2) 24%,var(--bg2)),var(--bg2) 72%)}
+.card .im img{object-fit:contain;filter:drop-shadow(0 18px 14px rgba(0,0,0,.3));animation:fl 5s ease-in-out infinite}
+.card .im video{object-fit:cover;border-radius:12px}
+.tb{position:absolute;top:8px;right:8px;z-index:2}
+.card .bd{border-top:1px solid var(--br);background:var(--bg)}
+.reel .wm{z-index:2}
+.reel.p{aspect-ratio:auto;width:190px;display:flex;flex-direction:column;place-items:unset}.reel.p:before{display:none}
+.reel .rim{aspect-ratio:1;display:grid;place-items:center;padding:14px;width:100%}
+.reel .rim img{width:100%;height:100%;object-fit:contain;animation:fl 3.5s ease-in-out infinite;filter:drop-shadow(0 16px 16px rgba(0,0,0,.4));filter:drop-shadow(0 16px 16px rgba(0,0,0,.4))}
+.reel .rim video{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.reel .cp2{padding:10px;background:rgba(0,0,0,.45);display:flex;flex-direction:column;gap:4px;font-size:13px;flex:1;width:100%}
+.reel .cp2 .btn{min-height:42px;font-size:13px;margin-top:auto;padding:0 8px;background:#fff;color:#111;box-shadow:none}
+</style>
+</head>
+<body>
+<header><div class="w"><a href="#top" class="logo" id="lg"><span id="lgm"><img src="data:image/jpeg;base64,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" alt="سفيان ستور"></span><span>سفيان <b>ستور</b><small>SUFYAN STORE</small></span></a><button class="cartb" id="cb" aria-label="السلة">🛒<i id="cn">0</i></button></div></header>
+
+<section id="adm"><div class="w">
+<h2>🛠 لوحة التحكم <button class="chip" id="lout" style="flex:none;padding:0 14px;min-height:40px;font-size:13px">خروج</button></h2>
+<p class="note" id="admnote"></p>
+<div class="box">
+<h3>إضافة / تعديل منتج</h3>
+<div class="f2">
+<div><label>اسم المنتج</label><input id="pn"></div>
+<div><label>القسم</label><select id="pc"><option value="new">📱 موبايل — زيرو</option><option value="open">📱 موبايل — كسر زيرو</option><option value="acc">🔌 شواحن وكوابل</option><option value="pb">🔋 باور بانك</option><option value="audio">🎧 سماعات وإيربودز</option><option value="cs">🛡 كفرات وحماية</option><option value="brand">⭐ My Brand (SS)</option></select></div>
+<div><label>الماركة / المصنّع (يظهر على المنتج)</label><input id="pb"></div><div><label><input id="po" type="checkbox" style="width:auto;min-height:0;margin:0 6px"> أضِف المنتج لقسم العروض</label></div>
+<div><label>السعر الأساسي (جنيه)</label><input id="pp" type="number" min="0"></div>
+<div><label>سعر الخصم (اختياري)</label><input id="ps" type="number" min="0"></div>
+<div><label>الكمية المتاحة</label><input id="pq" type="number" min="0"></div>
+<div><label>صورة / فيديو</label><input id="pf" type="file" accept="image/*,video/*"></div>
+<div><label>أو رابط صورة/فيديو (https)</label><input id="pu" type="url" dir="ltr" placeholder="https://..."></div>
+</div>
+<div class="box" style="margin:6px 0 12px"><b>🎨 استوديو الصورة (ذكاء اصطناعي)</b><div style="display:flex;gap:8px;flex-wrap:wrap;margin:8px 0"><button class="chip" id="sa1" style="flex:none;padding:0 12px">✨ تحسين تلقائي</button><button class="chip" id="sa2" style="flex:none;padding:0 12px">🪄 إزالة الخلفية AI</button><button class="chip" id="sa3" style="flex:none;padding:0 12px">🖼 عرض استوديو مميز</button><button class="chip" id="sa4" style="flex:none;padding:0 12px">↩ الأصلية</button></div><img id="pprev" alt="" style="display:none;max-width:220px;border-radius:12px;border:1px solid var(--br)"><div class="note" id="sm2">إزالة الخلفية تحمّل نموذجًا كبيرًا في أول مرة (يُفضّل واي فاي). استخدم صورًا تملك حقوقها أو بتفويض من الشركة.</div></div>
+<button class="btn" id="psave">حفظ ونشر فورًا للزوار</button>
+<span class="note" id="pmsg"></span>
+</div>
+<div class="box" style="margin-top:12px"><h3>🔑 تغيير كلمة المرور</h3><div class="f2"><div><input id="pw1" type="password" placeholder="كلمة مرور جديدة (8 أحرف على الأقل)" autocomplete="new-password"></div><div><button class="btn" id="pwb">حفظ كلمة المرور</button></div></div><span class="note" id="pwm"></span></div>
+<div class="box" style="margin-top:12px"><h3>🎨 تخصيص التصميم واللوجو</h3>
+<label>ألوان جاهزة</label><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px" id="pres"></div>
+<div class="f2"><div><label>اللون الرئيسي</label><input id="sc1" type="color"></div><div><label>اللون الثانوي</label><input id="sc2" type="color"></div>
+<div><label>نمط الخط</label><select id="sf"><option>Cairo</option><option>Tajawal</option><option>Almarai</option><option>Readex Pro</option><option>IBM Plex Sans Arabic</option><option>El Messiri</option></select></div>
+<div><label>شارة اعتماد (اكتبها فقط لو عندك تفويض رسمي)</label><input id="sa" placeholder="مثال: موزع معتمد لـ ..."></div><div><label>لوجو مخصص (اختياري)</label><input id="sl" type="file" accept="image/*"></div></div>
+<button class="btn" id="ssave">حفظ التصميم ونشره</button> <button class="btn g" id="srst">استعادة الافتراضي</button> <span class="note" id="smsg"></span></div>
+<div class="box" style="margin-top:12px"><h3>المنتجات والمخزون</h3><p class="note">بعد وصول تحويل فودافون كاش أو تسليم الطلب اضغط «تم بيع 1» لخصم الكمية من المخزون.</p><div id="plist"></div></div>
+</div></section>
+
+<div class="mq"><div>✔ أجهزة أصلية مفحوصة &nbsp;•&nbsp; ✔ ضمان مكتوب &nbsp;•&nbsp; ✔ شحن لكل المحافظات &nbsp;•&nbsp; ✔ استبدال وصيانة فورية &nbsp;•&nbsp; ✔ فودافون كاش وواتساب &nbsp;•&nbsp; ✔ أجهزة أصلية مفحوصة &nbsp;•&nbsp; ✔ ضمان مكتوب &nbsp;•&nbsp; ✔ شحن لكل المحافظات &nbsp;•&nbsp; ✔ استبدال وصيانة فورية &nbsp;•&nbsp; ✔ فودافون كاش وواتساب &nbsp;•&nbsp;</div></div>
+<div id="admwarn" style="display:none"><div class="w"><div class="box" style="max-width:420px;margin:28px auto"><h3>🔐 دخول المالك</h3><input id="le" type="email" placeholder="البريد الإلكتروني" autocomplete="username"><input id="lp" type="password" placeholder="كلمة المرور" autocomplete="current-password"><button class="btn" id="lgin" style="width:100%">دخول</button><button class="btn g" id="lsign" style="width:100%;margin-top:8px">إنشاء حساب المالك (مرة واحدة فقط)</button><button class="btn g" id="ldiag" style="width:100%;margin-top:8px">فحص الاتصال بالخادم</button><p class="note" id="lmsg"></p></div></div></div>
+<a id="admfab" href="#admin" style="display:none;position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:16px;z-index:30;background:var(--tx);color:var(--bg);padding:13px 18px;border-radius:99px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.3)">⚙ لوحة التحكم</a>
+<main id="top">
+<div class="hero"><div class="w"><svg class="phone" viewBox="0 0 120 210" aria-hidden="true"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--ac)"/><stop offset="1" stop-color="var(--ac2)"/></linearGradient></defs><rect x="4" y="4" width="112" height="202" rx="22" fill="#0b1020" stroke="#fff" stroke-opacity=".25" stroke-width="2"/><rect x="12" y="14" width="96" height="182" rx="14" fill="url(#pg)"/><rect x="44" y="18" width="32" height="7" rx="3.5" fill="#0b1020"/><text x="60" y="110" text-anchor="middle" font-size="46" font-weight="800" fill="#fff" font-family="Cairo,sans-serif">س</text><text x="60" y="140" text-anchor="middle" font-size="11" fill="#fff" opacity=".85" font-family="Cairo,sans-serif">SUFYAN STORE</text></svg>
+<h1>موبايلك يستاهل <span>تاجر يقولك الحقيقة</span>… مش بس يبيعلك</h1>
+<p class="mu">بيع • شراء • استبدال • صيانة فورية — أجهزة أصلية بضمان، وأسعار تقدر تقارنها وتشوفها بنفسك.</p>
+<a class="btn" href="#shop">شوف العروض المتاحة الآن</a>
+<div class="tags"><span>✔ أجهزة أصلية</span><span>✔ ضمان حقيقي</span><span>✔ شحن لكل المحافظات</span><span id="authb" style="display:none"></span></div>
+<div class="scroll">اسحب لتحت — أحدث الأسعار والعروض ↓</div>
+</div></div>
+
+<section><div class="w">
+<div class="ic" id="icons">
+<a data-c="mobile" class="on"><em>📱</em>موبايل<small>كل الهواتف</small></a>
+<a data-c="acc"><em>🔌</em>شواحن وكوابل<small>أصلي ومضمون</small></a>
+<a data-c="pb"><em>🔋</em>باور بانك<small>شحن في أي مكان</small></a>
+<a data-c="audio"><em>🎧</em>سماعات وإيربودز<small>صوت نقي</small></a>
+<a data-c="cs"><em>🛡</em>كفرات وحماية<small>حماية لجهازك</small></a>
+<a data-c="brand"><em>⭐</em>My Brand<small>اختيارات سفيان ستور</small></a>
+<a href="#offers"><em>🔥</em>العروض<small>خصومات حقيقية</small></a>
+<a href="#svc"><em>🔧</em>صيانة فورية<small>في نفس اليوم</small></a>
+</div>
+<div class="sub on" id="sub"><button class="chip on" data-s="all">الكل</button><button class="chip" data-s="new">زيرو (جديد)</button><button class="chip" data-s="open">كسر زيرو</button></div>
+<h2 id="ctitle" style="margin-top:22px">كل الهواتف</h2>
+<div id="shop"><div class="grid" id="grid"><div class="empty">جارٍ تحميل المنتجات…</div></div></div>
+</div></section>
+
+<section id="mybrand"><div class="w"><h2>⭐ My Brand — اختيارات سفيان ستور</h2><p class="mu">أكسسوارات انتقيناها بعناية وجرّبناها بأنفسنا. كل منتج يُعرض باسم مصنّعه الحقيقي وبسعر واضح، بلا مبالغة.</p>
+<div class="reels" id="reels"><div class="reel" style="--rc1:#0f766e;--rc2:#0ea5e9"><i></i><span class="wm">SS · سفيان ستور</span><svg viewBox="0 0 100 100"><rect x="14" y="26" width="72" height="50" rx="10" fill="#2a2d33"/><rect x="22" y="36" width="16" height="26" rx="3" fill="#7dd3fc"/><rect x="46" y="40" width="8" height="18" rx="4" fill="#9ca3af"/><rect x="58" y="40" width="8" height="18" rx="4" fill="#9ca3af"/><rect x="70" y="40" width="8" height="18" rx="2" fill="#f59e0b"/></svg><div class="cp">شاحن GaN سريع بعدة منافذ</div></div><div class="reel" style="--rc1:#4338ca;--rc2:#7c3aed"><i></i><span class="wm">SS · سفيان ستور</span><svg viewBox="0 0 100 100"><rect x="26" y="12" width="48" height="76" rx="9" fill="#1f2937"/><rect x="40" y="82" width="20" height="4" rx="2" fill="#f97316"/><circle cx="50" cy="42" r="12" fill="none" stroke="#a5b4fc" stroke-width="3"/><circle cx="36" cy="22" r="2" fill="#4ade80"/></svg><div class="cp">باور بانك مغناطيسي نحيف</div></div><div class="reel" style="--rc1:#be185d;--rc2:#f97316"><i></i><span class="wm">SS · سفيان ستور</span><svg viewBox="0 0 100 100"><ellipse cx="50" cy="56" rx="34" ry="28" fill="#bae6fd" opacity=".9"/><ellipse cx="50" cy="56" rx="26" ry="20" fill="#0ea5e9" opacity=".5"/><text x="50" y="64" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">96</text><ellipse cx="22" cy="22" rx="7" ry="11" fill="#e0f2fe"/><ellipse cx="78" cy="22" rx="7" ry="11" fill="#e0f2fe"/></svg><div class="cp">سماعات لاسلكية بعلبة شاحنة</div></div><div class="reel" style="--rc1:#111827;--rc2:#475569"><i></i><span class="wm">SS · سفيان ستور</span><svg viewBox="0 0 100 100"><rect x="16" y="46" width="68" height="42" rx="12" fill="#9ca3af"/><circle cx="50" cy="67" r="14" fill="none" stroke="#111827" stroke-width="3"/><rect x="38" y="8" width="24" height="42" rx="6" fill="#111827"/><rect x="41" y="12" width="18" height="30" rx="3" fill="#38bdf8"/></svg><div class="cp">قاعدة شحن 3 في 1</div></div></div><p class="note">* مقاطع عرض توضيحية تعبّر عن فئات المنتجات، وصور المنتجات الفعلية تضيفها أنت من لوحة التحكم.</p>
+<button class="btn" data-c="brand">تسوّق منتجات My Brand</button></div></section>
+<section class="alt" id="offers" style="display:none"><div class="w"><h2>🔥 العروض</h2><p class="mu">أسعار مخفضة على منتجات مختارة. الكميات المتاحة معروضة بصدق على كل منتج.</p><div class="grid" id="ogrid"></div></div></section>
+<section class="alt"><div class="w">
+<h2>مشكلتك مع شراء الموبايل مش السعر… هي الثقة.</h2>
+<p class="mu">جهاز مقلّد؟ ضمان وهمي؟ سعر بيتغيّر وقت الدفع؟ ده كله بيحصل كل يوم.</p>
+<div class="three">
+<div class="box"><h3>🛡 الحل: جهاز أصلي مفحوص</h3>كل جهاز بيتفحص قدامك قبل التسليم، والحالة مكتوبة بوضوح: زيرو أو كسر زيرو.</div>
+<div class="box"><h3>💰 سعر واضح من أول لحظة</h3>المنتج + الشحن + أي رسوم تظهر لك قبل تأكيد الطلب. صفر مفاجآت.</div>
+<div class="box"><h3>⚡ رد في دقائق</h3>واتساب مباشر، واستبدال أو صيانة في نفس اليوم.</div>
+</div>
+<div class="stat" style="margin-top:28px"><div><b>+1500</b>عميل راضٍ</div><div><b>4.9★</b>متوسط التقييم</div><div><b>24س</b>أقصى وقت للتوصيل</div></div>
+</div></section>
+
+<section id="svc"><div class="w">
+<h2>بيع – شراء – استبدال – صيانة فورية</h2>
+<p class="mu">لقيت الحل؟ فعلاً. خدمة واحدة تغطي كل اللي محتاجه لموبايلك:</p>
+<div class="three">
+<div class="box"><h3>💵 بيع جهازك</h3>تقييم عادل في دقايق وفلوس كاش في إيدك.</div>
+<div class="box"><h3>🔁 استبدال</h3>هات قديمك وخد الأحدث بدفع الفرق فقط.</div>
+<div class="box"><h3>🔧 صيانة فورية</h3>شاشة، بطارية، شحن — وغالبًا تستلمه في نفس اليوم.</div>
+</div>
+<div class="cta" style="margin-top:26px"><h2>احجز الآن… التقييم والفحص مجانًا</h2><p>الأجهزة المتاحة محدودة والأسعار بتتغير. كلمنا قبل ما تضيع الفرصة.</p>
+<a class="btn" href="https://wa.me/201064343459?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AE%D8%AF%D9%85%D8%A9%20%D9%85%D9%86%20%D8%B3%D9%81%D9%8A%D8%A7%D9%86%20%D8%B3%D8%AA%D9%88%D8%B1" target="_blank" rel="noopener">احجز عبر واتساب الآن</a></div>
+</div></section>
+
+<section class="alt"><div class="w">
+<h2>عن سفيان ستور</h2>
+<p>إحنا مش مجرد محل موبايلات. بدأت سفيان ستور لأني زيّك: اشتريت جهازًا غالي واكتشفت بعدها إنه مش زي ما اتقالي. من يومها وعدت نفسي إن أي عميل يدخل عندي يطلع وهو مطمّن.</p>
+<p class="mu">النهارده بنبيع ونشتري ونستبدل ونصلّح بنفس المبدأ: الحالة مكتوبة، السعر واضح، والكلمة كلمة. لو عايز تتعامل مع حد بيعتبرك صاحبه مش مجرد زبون، أنت في المكان الصح.</p>
+</div></section>
+
+<section><div class="w">
+<h2>عملاؤنا بيقولوا إيه</h2>
+<div class="three">
+<div class="box">“جبت آيفون كسر زيرو، اتفحص قدامي والسعر كان زي ما اتفقنا بالظبط.” <br><b>— أحمد م.، كفر الشيخ</b></div>
+<div class="box">“استبدلت جهازي القديم في نفس اليوم ودفعت الفرق بس. تعامل محترم.” <br><b>— منى ع.، طنطا</b></div>
+<div class="box">“الشاشة اتغيّرت في ساعة والشحن وصلني تاني يوم. هكلمهم دايمًا.” <br><b>— كريم س.، دسوق</b></div>
+</div>
+<p class="note">* نماذج شهادات مقترحة — استبدلها بآراء عملائك الحقيقيين.</p>
+</div></section>
+
+<section class="alt"><div class="w">
+<h2>أسئلة شائعة</h2>
+<details><summary>هل الأجهزة أصلية وبضمان؟</summary>أيوه، كل الأجهزة أصلية ومفحوصة، ومعاها ضمان مكتوب حسب حالة الجهاز.</details>
+<details><summary>يعني إيه "كسر زيرو"؟</summary>جهاز استُخدم استخدام خفيف جدًا بحالة قريبة جدًا من الجديد، وبسعر أقل من الزيرو.</details>
+<details><summary>إزاي أدفع؟</summary>فودافون كاش على 01064343459 أو الدفع عند الاستلام (مع إظهار الرسوم قبل التأكيد).</details>
+<details><summary>الشحن بكام؟</summary>50 جنيه، ومجاني للطلبات اللي فوق 1000 جنيه.</details>
+<details><summary>أقدر أستبدل جهازي؟</summary>طبعًا، ابعت لنا موديل جهازك على واتساب وهنقيّمه فورًا.</details>
+</div></section>
+
+<section><div class="w"><div class="cta"><h2>أذكى قرار النهارده: احجز جهازك قبل ما السعر يتغيّر</h2><p>ادفع فودافون كاش على <b dir="ltr">01064343459</b> أو كلمنا واتساب.</p><a class="btn" href="#shop">اطلب الآن</a></div></div></section>
+</main>
+
+<footer><div class="w"><b>سفيان ستور</b><br>موبايلات • إكسسوارات • صيانة<br>واتساب وفودافون كاش: <span dir="ltr">01064343459</span></div></footer>
+<a class="fab" href="https://wa.me/201064343459" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+
+<dialog id="dlg"><div class="dl">
+<h2>🛒 سلة المشتريات</h2>
+<div id="cl"></div>
+<div id="sm"></div>
+<label>الاسم</label><input id="cname"><label>رقم الموبايل</label><input id="cph" type="tel" inputmode="tel"><label>المحافظة والعنوان</label><input id="cad">
+<label>طريقة الدفع</label><select id="cpay"><option value="vc">فودافون كاش (01064343459)</option><option value="cod">الدفع عند الاستلام (+15 جنيه)</option></select>
+<div class="vc" id="vcn">حوّل الإجمالي على فودافون كاش <b dir="ltr">01064343459</b> ثم أكّد الطلب وأرسل صورة التحويل على واتساب.</div>
+<button class="btn" id="co" style="width:100%">تأكيد الطلب عبر واتساب</button>
+<button class="btn g" id="cx" style="width:100%;margin-top:8px">إغلاق</button>
+</div></dialog>
+
+<script>
+(function(){
+var WA="201064343459",SHIP=50,FREE=1000,COD=15,TAX=0;
+var P=[],cart={},cat="mobile",sub="all",db=null,user=null,assets=null,editId=null;
+var $=function(i){return document.getElementById(i)};
+var egp=function(n){return Number(n).toLocaleString("ar-EG")+" جنيه"};
+var esc=function(s){var d=document.createElement("div");d.textContent=s==null?"":s;return d.innerHTML};
+
+/* ---- الخلفية: Supabase (للموقع العام) أو وضع تجريبي محلي إن لم تُضَف المفاتيح ---- */
+var SB_URL="https://ltobrduebquavhznwrhb.supabase.co",SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx0b2JyZHVlYnF1YXZoem53cmhiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5Njc4MDgsImV4cCI6MjEwNjU0MzgwOH0.VvaJQPQBMBuhByiAzeHjJlpY6EYaEbC13w--b5DCVtg";
+var MODE="admin"; /* visitor | admin */   /* ← ضع هنا Project URL و anon public key من Supabase */
+var DEMO=!(SB_URL&&SB_KEY),sb=null;
+function bu(id){return /^(https?:|data:)/.test(id)?id:"/_blob/"+encodeURIComponent(id)}
+function mkDemo(){
+  var L=function(k){try{return JSON.parse(localStorage.getItem(k)||"{}")}catch(e){return{}}},W=function(k,v){localStorage.setItem(k,JSON.stringify(v))},subs={};
+  function emit(c){(subs[c]||[]).forEach(function(f){f()})}
+  function col(c){return{
+    onSnapshot:function(n){var f=function(){var m=L("ss_"+c);n({docs:Object.keys(m).map(function(id){return{id:id,exists:true,data:function(){return m[id]}}})})};(subs[c]=subs[c]||[]).push(f);f()},
+    doc:function(id){return{
+      onSnapshot:function(n){var f=function(){var m=L("ss_"+c);n({exists:!!m[id],data:function(){return m[id]}})};(subs[c]=subs[c]||[]).push(f);f()},
+      set:async function(d){var m=L("ss_"+c);m[id]=d;W("ss_"+c,m);emit(c)},
+      update:async function(d){var m=L("ss_"+c);m[id]=Object.assign({},m[id],d);W("ss_"+c,m);emit(c)},
+      delete:async function(){var m=L("ss_"+c);delete m[id];W("ss_"+c,m);emit(c)}}}}}
+  return{db:{collection:col},assets:{upload:function(f){return new Promise(function(r){var fr=new FileReader();fr.onload=function(){r({id:fr.result})};fr.readAsDataURL(f)})}},isAdmin:async function(){return true}};
+}
+async function shrink(f){
+  if(!/^image\/(jpe?g|png|webp)$/.test(f.type))return f;
+  try{var im=await createImageBitmap(f),k=Math.min(1,1200/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext("2d").drawImage(im,0,0,c.width,c.height);
+  return await new Promise(function(r){c.toBlob(function(b){r(b||f)},"image/webp",.85)})}catch(e){return f}
+}
+function mkSb(){
+  sb=supabase.createClient(SB_URL,SB_KEY);
+  function rows(c,n,err){var f=async function(){var r=await sb.from(c).select("id,data");if(r.error){err&&err(r.error);setTimeout(f,8000);return}n({docs:r.data.map(function(x){return{id:x.id,exists:true,data:function(){return x.data}}})})};f();sb.channel("rt-"+c+Math.random().toString(36).slice(2)).on("postgres_changes",{event:"*",schema:"public",table:c},f).subscribe()}
+  function col(c){return{onSnapshot:function(n,e){rows(c,n,e)},doc:function(id){return{
+    onSnapshot:function(n,e){rows(c,function(s){var d=s.docs.find(function(x){return x.id===id});n({exists:!!d,data:function(){return d&&d.data()}})},e)},
+    set:async function(d){var r=await sb.from(c).upsert({id:id,data:d});if(r.error)throw r.error},
+    update:async function(d){var g=await sb.from(c).select("data").eq("id",id).maybeSingle();var r=await sb.from(c).upsert({id:id,data:Object.assign({},g.data&&g.data.data,d)});if(r.error)throw r.error},
+    delete:async function(){var r=await sb.from(c).delete().eq("id",id);if(r.error)throw r.error}}}}}
+  return{db:{collection:col},assets:{upload:async function(f){
+    if(f.size>50*1048576)throw new Error("الملف أكبر من 50MB");
+    var b=await shrink(f),ext=(b.type.split("/")[1]||"bin").replace("quicktime","mov"),p=Date.now()+"-"+Math.random().toString(36).slice(2,8)+"."+ext;
+    var r=await sb.storage.from("media").upload(p,b,{contentType:b.type,cacheControl:"31536000"});if(r.error)throw r.error;
+    return{id:sb.storage.from("media").getPublicUrl(p).data.publicUrl}}},
+    isAdmin:async function(){var x=await sb.auth.getSession();return !!(x.data&&x.data.session)}};
+}
+var E={new:"📱",open:"📱",acc:"🔌",pb:"🔋",audio:"🎧",cs:"🛡",brand:"⭐"};
+
+function price(p){return p.sale&&p.sale<p.price?+p.sale:+p.price}
+function media(p){
+  if(!p.mid)return E[p.cat]||"📦";
+  var u=bu(p.mid),oe=' onerror="this.replaceWith(document.createTextNode(\'📦\'))"';
+  return p.vid?'<video src="'+u+'" muted loop playsinline autoplay preload="metadata"'+oe+'></video>':'<img loading="lazy" src="'+u+'" alt="'+esc(p.name)+'"'+oe+'>';
+}
+var CT={mobile:"كل الهواتف",acc:"شواحن وكوابل",pb:"باور بانك",audio:"سماعات وإيربودز",cs:"كفرات وحماية",brand:"My Brand — اختيارات سفيان ستور"},REELS0=$("reels").innerHTML;
+function disc(p){return p.sale&&p.sale<p.price?Math.round((1-p.sale/p.price)*100):0}
+function card(p){
+  var out=+p.stock<=0,d=disc(p);
+  return '<div class="card"><div class="im">'+(d?'<span class="badge tb">وفّر '+d+'%</span>':(p.offer?'<span class="badge tb">عرض</span>':''))+media(p)+'</div><div class="bd"><h3>'+esc(p.name)+'</h3>'+(p.brand?'<small class="mu">'+esc(p.brand)+'</small>':'')+'<div class="pr"><b>'+egp(price(p))+'</b>'+(d?'<s>'+egp(p.price)+'</s>':'')+'</div>'+(+p.stock>0&&+p.stock<=3?'<small style="color:var(--rd)">باقي '+p.stock+' فقط</small>':'')+'<button class="btn" data-a="'+p.id+'"'+(out?' disabled style="opacity:.5"':'')+'>'+(out?'نفدت الكمية':'أضف للسلة')+'</button></div></div>';
+}
+function reelCard(p){
+  var out=+p.stock<=0;
+  return '<div class="reel p" style="--rc1:#0f766e;--rc2:#0ea5e9"><i></i><span class="wm">SS · سفيان ستور</span><div class="rim">'+media(p)+'</div><div class="cp2"><b>'+esc(p.name)+'</b><div>'+egp(price(p))+(disc(p)?' <s>'+egp(p.price)+'</s>':'')+'</div><button class="btn" data-a="'+p.id+'"'+(out?' disabled style="opacity:.5"':'')+'>'+(out?'نفدت':'أضف للسلة')+'</button></div></div>';
+}
+function render(){
+  var list=P.filter(function(p){return cat==="mobile"?((p.cat==="new"||p.cat==="open")&&(sub==="all"||p.cat===sub)):p.cat===cat});
+  $("sub").className="sub"+(cat==="mobile"?" on":"");$("ctitle").textContent=CT[cat]||"";
+  $("grid").innerHTML=list.length?list.map(card).join(""):'<div class="empty">لا توجد منتجات في هذا القسم حاليًا. كلمنا واتساب ونوفّر لك طلبك.</div>';
+  var of=P.filter(function(p){return p.offer||(p.sale&&p.sale<p.price)});
+  $("offers").style.display=of.length?"":"none";$("ogrid").innerHTML=of.map(card).join("");
+  var br=P.filter(function(p){return p.cat==="brand"});
+  $("reels").innerHTML=br.length?br.map(reelCard).join(""):REELS0;
+}
+function totals(){
+  var sub0=0;Object.keys(cart).forEach(function(id){var p=P.find(function(x){return x.id===id});if(p)sub0+=price(p)*cart[id]});
+  var ship=sub0===0?0:(sub0>=FREE?0:SHIP),cod=$("cpay").value==="cod"&&sub0?COD:0,tax=Math.round(sub0*TAX);
+  return{sub:sub0,ship:ship,cod:cod,tax:tax,total:sub0+ship+cod+tax};
+}
+function cartUI(){
+  var n=0,h="";
+  Object.keys(cart).forEach(function(id){
+    var p=P.find(function(x){return x.id===id});if(!p){delete cart[id];return}
+    n+=cart[id];
+    h+='<div class="row"><span>'+esc(p.name)+'<br><small class="mu">'+egp(price(p))+' × '+cart[id]+'</small></span><span class="qty"><button data-q="-1" data-i="'+id+'">−</button><b>'+cart[id]+'</b><button data-q="1" data-i="'+id+'">+</button></span></div>';
+  });
+  $("cn").textContent=n;$("cl").innerHTML=h||'<p class="mu">السلة فاضية.</p>';
+  var t=totals();
+  $("sm").innerHTML=t.sub?'<div class="row"><span>قيمة المنتجات</span><span>'+egp(t.sub)+'</span></div><div class="row"><span>الشحن</span><span>'+(t.ship?egp(t.ship):"مجاني")+'</span></div>'+(t.cod?'<div class="row"><span>رسوم الدفع عند الاستلام</span><span>'+egp(t.cod)+'</span></div>':'')+'<div class="row tot"><span>الإجمالي</span><span>'+egp(t.total)+'</span></div><p class="note">الشحن مجاني للطلبات فوق '+egp(FREE)+'</p>':'';
+  $("vcn").style.display=$("cpay").value==="vc"?"block":"none";
+}
+function add(id){
+  var p=P.find(function(x){return x.id===id});if(!p)return;
+  if((cart[id]||0)+1>+p.stock)return alert("الكمية المتاحة: "+p.stock);
+  cart[id]=(cart[id]||0)+1;track("AddToCart",{content_name:p.name,value:price(p),currency:"EGP"});$("cb").classList.remove("bump");void $("cb").offsetWidth;$("cb").classList.add("bump");cartUI();$("dlg").showModal();
+}
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-a],[data-q],[data-c],[data-s]");if(!t)return;
+  if(t.dataset.a)add(t.dataset.a);
+  else if(t.dataset.q){var i=t.dataset.i,p=P.find(function(x){return x.id===i}),q=(cart[i]||0)+ +t.dataset.q;if(q<=0)delete cart[i];else if(p&&q<=+p.stock)cart[i]=q;cartUI()}
+  else if(t.dataset.c){cat=t.dataset.c;document.querySelectorAll("#icons a").forEach(function(a){a.classList.toggle("on",a===t)});render();$("ctitle").scrollIntoView()}
+  else if(t.dataset.s){sub=t.dataset.s;document.querySelectorAll("#sub .chip").forEach(function(c){c.classList.toggle("on",c===t)});render()}
+});
+$("cb").onclick=function(){track("InitiateCheckout");cartUI();$("dlg").showModal()};
+$("cx").onclick=function(){$("dlg").close()};
+$("cpay").onchange=cartUI;
+$("co").onclick=async function(){
+  var t=totals();if(!t.sub)return alert("السلة فاضية");
+  var nm=$("cname").value.trim(),ph=$("cph").value.trim(),ad=$("cad").value.trim();
+  if(!nm||!ph||!ad)return alert("من فضلك أكمل الاسم والموبايل والعنوان");
+  var items=Object.keys(cart).map(function(id){var p=P.find(function(x){return x.id===id});return{id:id,name:p.name,qty:cart[id],unit:price(p)}});
+  var msg="طلب جديد من سفيان ستور\n"+items.map(function(i){return"• "+i.name+" × "+i.qty+" = "+i.unit*i.qty+" ج"}).join("\n")+"\nالمنتجات: "+t.sub+" ج\nالشحن: "+t.ship+" ج"+(t.cod?"\nرسوم الاستلام: "+t.cod+" ج":"")+"\nالإجمالي: "+t.total+" ج\nالدفع: "+($("cpay").value==="vc"?"فودافون كاش":"عند الاستلام")+"\nالاسم: "+nm+"\nالموبايل: "+ph+"\nالعنوان: "+ad;
+  track("Purchase",{value:t.total,currency:"EGP"});window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),"_blank");
+  cart={};cartUI();$("dlg").close();
+};
+
+
+
+/* ---- Meta Pixel: put your Pixel ID below (works on your own domain/Netlify; blocked inside Claude hosting) ---- */
+var PIXEL_ID="";
+if(PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init",PIXEL_ID);fbq("track","PageView")}
+function track(ev,d){try{if(window.fbq)fbq("track",ev,d||{})}catch(e){}}
+/* ---- motion ---- */
+var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12}):null;
+function rev(root){(root||document).querySelectorAll(".reveal:not(.in)").forEach(function(el,i){if(io){el.style.transitionDelay=Math.min(i%8,7)*60+"ms";io.observe(el)}else el.classList.add("in")})}
+document.querySelectorAll(".reel,h2,.box,.stat,.cta,details,.ic a").forEach(function(el){el.classList.add("reveal")});
+new MutationObserver(function(){document.querySelectorAll("#grid .card:not(.reveal),#ogrid .card:not(.reveal)").forEach(function(c){c.classList.add("reveal")});rev($("grid"))}).observe($("grid"),{childList:true});new MutationObserver(function(){document.querySelectorAll("#ogrid .card:not(.reveal)").forEach(function(c){c.classList.add("reveal")});rev($("ogrid"))}).observe($("ogrid"),{childList:true});
+rev();
+$("grid").addEventListener("pointermove",function(e){var c=e.target.closest(".card");if(!c)return;var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="perspective(700px) rotateY("+x*-8+"deg) rotateX("+y*8+"deg) translateY(-4px)"});
+$("grid").addEventListener("pointerout",function(e){var c=e.target.closest(".card");if(c)c.style.transform=""});
+document.addEventListener("click",function(e){if(e.target.closest("a[href*='wa.me']"))track("Contact")});
+
+/* ---- design settings ---- */
+var S={},PRE=[["زمردي","#059669","#0ea5e9"],["ملكي","#6d28d9","#06b6d4"],["ذهبي","#b45309","#f59e0b"],["أحمر","#dc2626","#f97316"],["أزرق","#1d4ed8","#06b6d4"],["أسود","#111827","#6366f1"]],LF={};
+function applyS(s){
+  S=s||{};var r=document.documentElement.style;
+  ["ac","ac2"].forEach(function(k){if(S[k])r.setProperty("--"+k,S[k]);else r.removeProperty("--"+k)});
+  if(S.font){if(!LF[S.font]){LF[S.font]=1;var l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?family="+S.font.replace(/ /g,"+")+":wght@400;700;800&display=swap";document.head.appendChild(l)}r.setProperty("--f",'"'+S.font+'"')}else r.removeProperty("--f");
+  var m=$("lgm");if(S.logo&&!m.dataset.d){m.dataset.d=m.innerHTML;m.innerHTML='<img src="'+bu(S.logo)+'" alt="سفيان ستور">'}
+  else if(!S.logo&&m.dataset.d){m.innerHTML=m.dataset.d;delete m.dataset.d}
+  var a=$("authb");a.textContent=S.auth?"✔ "+S.auth:"";a.style.display=S.auth?"":"none";$("sa").value=S.auth||"";$("sc1").value=S.ac||"#059669";$("sc2").value=S.ac2||"#0ea5e9";$("sf").value=S.font||"Cairo";
+}
+$("pres").innerHTML=PRE.map(function(p,i){return'<button class="chip" style="flex:none;padding:0 14px;border-color:'+p[1]+'" data-pre="'+i+'">'+p[0]+'</button>'}).join("");
+function live(){var o=Object.assign({},S,{ac:$("sc1").value,ac2:$("sc2").value,font:$("sf").value});applyS(o)}
+["sc1","sc2","sf"].forEach(function(i){$(i).oninput=live});
+document.addEventListener("click",function(e){var t=e.target.closest("[data-pre]");if(t){var p=PRE[+t.dataset.pre];applyS(Object.assign({},S,{ac:p[1],ac2:p[2]}))}});
+$("ssave").onclick=async function(){
+  if(!db)return;var m=$("smsg");
+  var o={auth:$("sa").value.trim(),ac:$("sc1").value,ac2:$("sc2").value,font:$("sf").value,logo:S.logo||""};
+  try{var f=$("sl").files[0];if(f&&assets){m.textContent="جارٍ الرفع…";o.logo=(await assets.upload(f)).id}
+  await db.collection("settings").doc("site").set(o);m.textContent="✔ تم الحفظ وظهر للزوار"}catch(err){m.textContent="خطأ: "+(err.message||err.code)}
+};
+$("srst").onclick=async function(){if(db&&confirm("استعادة التصميم الافتراضي؟"))try{await db.collection("settings").doc("site").set({});$("smsg").textContent="✔ تمت الاستعادة"}catch(e){}};
+
+/* ---- shared data: products published by admin appear for visitors automatically ---- */
+function boot(){
+  try{db.collection("settings").doc("site").onSnapshot(function(d){applyS(d.exists?d.data():{})},function(){})}catch(e){}
+  try{
+    db.collection("products").onSnapshot(function(s){
+      P=s.docs.map(function(d){var x=d.data();x.id=d.id;return x}).sort(function(a,b){return(b.at||0)-(a.at||0)});
+      render();cartUI();adminList();
+    },function(){$("grid").innerHTML='<div class="empty">تعذّر تحميل المنتجات الآن. تواصل معنا على واتساب.</div>'});
+  }catch(e){}
+}
+(async function(){
+  render();
+  try{var B=DEMO?mkDemo():mkSb();db=B.db;assets=B.assets;ADM=await B.isAdmin()}catch(e){console.error(e)}
+  if(db)boot();else $("grid").innerHTML='<div class="empty">المنتجات قيد التحديث الآن — اطلب موديلك مباشرة على واتساب.</div>';
+  checkAdmin();
+})();
+window.addEventListener("hashchange",checkAdmin);
+  $("pwb").onclick=async function(){var p=$("pw1").value,m=$("pwm");if(!sb)return;if(p.length<8){m.textContent="8 أحرف على الأقل";return}
+    var r=await sb.auth.updateUser({password:p});m.textContent=r.error?"تعذّر التغيير: "+r.error.message:"✔ تم تغيير كلمة المرور";if(!r.error)$("pw1").value=""};
+  $("lout").onclick=async function(){if(sb)await sb.auth.signOut();ADM=DEMO;location.hash="";checkAdmin()};
+
+
+/* ---- استوديو الصور ---- */
+var PF=null,PF0=null;
+function sm2(t){$("sm2").textContent=t}
+function setPF(b){PF=b;var i=$("pprev");if(i.dataset.u)URL.revokeObjectURL(i.dataset.u);i.dataset.u=URL.createObjectURL(b);i.src=i.dataset.u;i.style.display="block"}
+function cvs(w,h){var c=document.createElement("canvas");c.width=w;c.height=h;return c}
+function blob(c){return new Promise(function(r){c.toBlob(r,"image/webp",.9)})}
+function needImg(){if(PF&&PF.type.indexOf("image")===0)return true;sm2("ارفع صورة أولًا");return false}
+$("pf").onchange=function(){var f=this.files[0];PF0=f||null;if(f&&f.type.indexOf("image")===0)setPF(f);else{PF=f||null;$("pprev").style.display="none"}};
+$("sa1").onclick=async function(){if(!needImg())return;sm2("جارٍ التحسين…");try{
+  var im=await createImageBitmap(PF),k=Math.min(1,1400/Math.max(im.width,im.height)),c=cvs(Math.round(im.width*k),Math.round(im.height*k)),x=c.getContext("2d");x.drawImage(im,0,0,c.width,c.height);
+  var d=x.getImageData(0,0,c.width,c.height),a=d.data;
+  for(var i=0;i<a.length;i+=4){var g=.3*a[i]+.59*a[i+1]+.11*a[i+2];for(var j=0;j<3;j++){var v=(g+(a[i+j]-g)*1.15-128)*1.08+134;a[i+j]=v<0?0:v>255?255:v}}
+  x.putImageData(d,0,0);setPF(await blob(c));sm2("✔ تم تحسين الألوان والوضوح")}catch(e){sm2("تعذّر التحسين: "+e.message)}};
+$("sa2").onclick=async function(){if(!needImg())return;sm2("جارٍ إزالة الخلفية… قد تستغرق دقيقة");try{
+  var M=await import("https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm"),fn=M.removeBackground||M.default;
+  setPF(await fn(PF));sm2("✔ تمت إزالة الخلفية — اضغط «عرض استوديو مميز»")}catch(e){sm2("تعذّرت إزالة الخلفية على هذا الجهاز. استخدم «عرض استوديو» مباشرة أو صورة شفافة الخلفية.")}};
+$("sa3").onclick=async function(){if(!needImg())return;sm2("جارٍ التصميم…");try{
+  var im=await createImageBitmap(PF),S=1200,c=cvs(S,S),x=c.getContext("2d"),g=x.createRadialGradient(S/2,S*.4,80,S/2,S/2,S*.8);
+  g.addColorStop(0,"#ffffff");g.addColorStop(.55,"#e8eef7");g.addColorStop(1,"#b3c0d6");x.fillStyle=g;x.fillRect(0,0,S,S);
+  var k=Math.min(S*.74/im.width,S*.7/im.height),w=im.width*k,h=im.height*k,px=(S-w)/2,py=(S-h)/2-30;
+  x.fillStyle="rgba(0,0,0,.2)";x.beginPath();x.ellipse(S/2,py+h+30,w*.42,24,0,0,7);x.fill();
+  x.save();x.shadowColor="rgba(0,0,0,.3)";x.shadowBlur=40;x.shadowOffsetY=24;x.drawImage(im,px,py,w,h);x.restore();
+  x.beginPath();x.arc(S-90,90,50,0,7);x.fillStyle="#0f172a";x.fill();x.fillStyle="#fff";x.font="800 40px sans-serif";x.textAlign="center";x.textBaseline="middle";x.fillText("SS",S-90,92);
+  setPF(await blob(c));sm2("✔ صورة عرض مميزة جاهزة للحفظ")}catch(e){sm2("تعذّر التصميم: "+e.message)}};
+$("sa4").onclick=function(){if(PF0&&PF0.type.indexOf("image")===0){setPF(PF0);sm2("تمت استعادة الأصلية")}};
+
+/* ---- admin ---- */
+var ADM=false;
+function isAdmin(){return ADM}
+function checkAdmin(){
+  var h=MODE==="admin",on=h&&ADM;
+  $("adm").classList.toggle("on",on);
+  $("admwarn").style.display=h&&!ADM?"block":"none";
+  $("admfab").style.display="none";
+  if(on)adminList();
+}
+$("lsign").onclick=async function(){
+  if(!sb)return;var m=$("lmsg"),e=$("le").value.trim(),p=$("lp").value;
+  if(!e||p.length<8){m.textContent="اكتب بريدًا صحيحًا وكلمة مرور 8 أحرف على الأقل";return}
+  m.textContent="جارٍ الإنشاء…";
+  var r=await sb.auth.signUp({email:e,password:p});
+  if(r.error){m.textContent="تعذّر الإنشاء: "+(r.error.message||"")+" — إن كان حساب المالك موجودًا استخدم زر «دخول».";return}
+  var l=await sb.auth.signInWithPassword({email:e,password:p});
+  if(l.error){m.textContent="تم إنشاء الحساب. اضغط «دخول».";return}
+  ADM=true;m.textContent="";checkAdmin();
+};
+async function rawFetch(path,opt){var r=await fetch(SB_URL+path,Object.assign({headers:{apikey:SB_KEY,"Content-Type":"application/json"}},opt||{}));var t=await r.text(),j;try{j=JSON.parse(t)}catch(e){j=t}return{ok:r.ok,status:r.status,body:j}}
+async function signIn(email,pw){
+  var r=await sb.auth.signInWithPassword({email:email,password:pw});
+  if(!r.error)return r;
+  if(!/load failed|failed to fetch|network|fetch/i.test(r.error.message||""))return r;
+  try{var x=await rawFetch("/auth/v1/token?grant_type=password",{method:"POST",body:JSON.stringify({email:email,password:pw})});
+    if(!x.ok)return{error:{message:(x.body&&(x.body.error_description||x.body.msg))||"invalid credentials"}};
+    var st=await sb.auth.setSession({access_token:x.body.access_token,refresh_token:x.body.refresh_token});return st.error?{error:st.error}:st;
+  }catch(e){return{error:{message:"تعذّر الوصول للخادم من هذا المتصفح (فحص الاتصال يوضّح السبب). افتح الموقع بعد نشره من Safari أو Chrome مباشرة."}}}
+}
+$("ldiag").onclick=async function(){var m=$("lmsg");m.textContent="جارٍ الفحص…";var out=[];
+  for(var q of [["/auth/v1/health","الدخول"],["/rest/v1/settings?select=id&limit=1","البيانات"]]){
+    try{var x=await rawFetch(q[0]);out.push(q[1]+": "+(x.ok?"يعمل ✔":"خطأ "+x.status))}catch(e){out.push(q[1]+": محجوب ✖ ("+(e.message||"")+")")}}
+  m.textContent=out.join(" | ")+" | الصفحة: "+location.protocol+"//"+(location.host||"ملف محلي")};
+$("lgin").onclick=async function(){
+  if(!sb)return;$("lmsg").textContent="جارٍ الدخول…";
+  var r=await signIn($("le").value.trim(),$("lp").value);
+  if(r.error){$("lmsg").textContent="تعذّر الدخول: "+(/invalid/i.test(r.error.message||"")?"البريد أو كلمة المرور غير صحيحة":(r.error.message||"تحقق من الاتصال"));return}
+  ADM=true;$("lmsg").textContent="";checkAdmin();
+};
+function adminList(){
+  if(!$("adm").classList.contains("on"))return;
+  $("admnote").textContent=DEMO?"⚠ وضع تجريبي: التعديلات تظهر على هذا الجهاز فقط. أضف مفاتيح Supabase داخل الملف لتصل للزوار.":"✔ أنت مسجّل كمالك. المنتجات المنشورة الآن: "+P.length+". أي حفظ يظهر للزوار فورًا بدون إعادة نشر.";
+  $("plist").innerHTML=P.map(function(p){return'<div class="ar"><span>'+esc(p.name)+' — '+egp(price(p))+' — مخزون '+p.stock+'</span><span><button data-e="'+p.id+'">تعديل</button> <button data-ok="'+p.id+'">تم بيع 1 (خصم)</button> <button data-d="'+p.id+'">حذف</button></span></div>'}).join("")||'<span class="note">لم تضف منتجات بعد.</span>';
+}
+document.addEventListener("click",async function(e){
+  var t=e.target.closest("[data-e],[data-d],[data-ok]");if(!t||!db)return;
+  try{
+    if(t.dataset.e){var p=P.find(function(x){return x.id===t.dataset.e});editId=p.id;$("pn").value=p.name;$("pb").value=p.brand||"";$("po").checked=!!p.offer;$("pc").value=p.cat;$("pp").value=p.price;$("ps").value=p.sale||"";$("pq").value=p.stock;$("pu").value=(p.mid&&/^https?:/i.test(p.mid)&&!/supabase\.co/.test(p.mid))?p.mid:"";PF=null;PF0=null;$("pprev").style.display="none";if(p.mid&&!p.vid){fetch(bu(p.mid)).then(function(r){return r.blob()}).then(function(b){PF0=b;setPF(b);sm2("الصورة الحالية محمّلة — عدّلها بالأدوات أعلاه ثم احفظ")}).catch(function(){})}$("pn").scrollIntoView()}
+    if(t.dataset.d&&confirm("حذف المنتج؟"))await db.collection("products").doc(t.dataset.d).delete();
+    if(t.dataset.ok){var cur=P.find(function(x){return x.id===t.dataset.ok});await db.collection("products").doc(cur.id).update({stock:Math.max(0,+cur.stock-1)})}
+  }catch(err){alert("تعذّر التنفيذ: "+(err.message||err.code))}
+});
+$("psave").onclick=async function(){
+  var m=$("pmsg");if(!db)return;
+  var n=$("pn").value.trim(),pr=+$("pp").value;if(!n||!(pr>0)){m.textContent="أدخل الاسم والسعر";return}
+  var o={brand:$("pb").value.trim(),offer:$("po").checked,name:n,cat:$("pc").value,price:pr,sale:+$("ps").value||0,stock:Math.max(0,+$("pq").value||0),at:Date.now()};
+  try{
+    var f=PF||$("pf").files[0],lk=$("pu").value.trim();
+    if(lk){if(!/^https:\/\//i.test(lk)){m.textContent="الرابط يجب أن يبدأ بـ https://";return}o.mid=lk;o.vid=/\.(mp4|webm|mov)(\?|#|$)/i.test(lk)}
+    else if(f){if(!assets){m.textContent="رفع الملفات غير متاح";return}m.textContent="جارٍ الرفع…";var r=await assets.upload(f);o.mid=r.id;o.vid=f.type.indexOf("video")===0}
+    else if(editId){var old=P.find(function(x){return x.id===editId});if(old){o.mid=old.mid;o.vid=old.vid}}
+    Object.keys(o).forEach(function(k){if(o[k]===undefined)delete o[k]});
+    await db.collection("products").doc(editId||"p"+Date.now()).set(o);
+    editId=null;["pn","pp","ps","pq","pf","pb","pu"].forEach(function(i){$(i).value=""});PF=null;PF0=null;$("pprev").style.display="none";$("po").checked=false;m.textContent="✔ تم النشر — يظهر للزوار الآن";
+  }catch(err){m.textContent="خطأ: "+(err.message||err.code)}
+};
+})();
+</script>
+</body>
+</html>
